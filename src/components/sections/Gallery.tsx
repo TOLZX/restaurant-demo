@@ -1,5 +1,7 @@
 import { ArrowUpRight } from "lucide-react";
 import { galleryImages } from "@/data/gallery";
+import { restaurant } from "@/config/restaurant";
+import { content } from "@/data/content";
 
 export default function Gallery() {
   return (
@@ -7,20 +9,19 @@ export default function Gallery() {
       <div className="container">
         <div className="gallery-header">
           <div>
-            <p className="subtitle">Inside LAVÉRA</p>
+            <p className="subtitle">{content.gallery.eyebrow}</p>
 
-            <h2 className="section-title">
-              Moments worth
-              <br />
-              <span>remembering.</span>
-            </h2>
-          </div>
+<h2 className="section-title">
+  {content.gallery.title}
+  <br />
+  <span>{content.gallery.highlightedTitle}</span>
+</h2>
 
-          <p className="gallery-intro">
-            A glimpse into the spaces, people, and moments
-            that make the LAVÉRA experience unique.
-          </p>
+<p className="gallery-intro">
+  {content.gallery.description}
+</p>
         </div>
+      </div>
 
         <div className="gallery-grid">
           {galleryImages.map((image, index) => (

@@ -1,4 +1,5 @@
 import { ArrowUpRight } from "lucide-react";
+import { restaurant } from "@/config/restaurant";
 
 const experiences = [
   {
@@ -17,7 +18,7 @@ const experiences = [
     number: "03",
     title: "Curated Events",
     description:
-      "From chef-led experiences to special evenings, there is always something happening at LAVÉRA.",
+      `From chef-led experiences to special evenings, there is always something happening at ${restaurant.name}.`,
   },
 ];
 
@@ -37,7 +38,7 @@ export default function Experience() {
           </div>
 
           <p className="experience-intro">
-            Every detail of LAVÉRA is designed to make the
+            Every detail of {restaurant.name} is designed to make the
             ordinary feel exceptional — from the first course
             to the final conversation.
           </p>
@@ -67,12 +68,12 @@ export default function Experience() {
         <div className="experience-image">
           <img
             src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?auto=format&fit=crop&w=2200&q=85"
-            alt="Guests enjoying an evening at LAVÉRA"
+            alt={`Guests enjoying an evening at ${restaurant.name}`}
           />
 
           <div className="experience-image-overlay">
             <span>EST. 2018</span>
-            <span>LAGOS, NIGERIA</span>
+            <span>{restaurant.location.city.toUpperCase()}</span>
           </div>
         </div>
       </div>

@@ -1,9 +1,12 @@
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
+import { restaurant } from "@/config/restaurant";
 import { signatureDishes } from "@/data/menu";
 import FoodCard from "@/components/menu/FoodCard";
 
 export default function SignatureDishes() {
   return (
-    <section className="signature section" id="menu">
+    <section className="signature section" id="signature">
       <div className="container">
         <div className="section-heading">
           <div>
@@ -15,18 +18,30 @@ export default function SignatureDishes() {
           </div>
 
           <p className="section-description">
-            A selection of dishes that define the LAVÉRA
+            A selection of dishes that define the {restaurant.name}
             dining experience.
           </p>
         </div>
 
-        <div className="food-grid">
-          {signatureDishes.map((dish) => (
-            <FoodCard
+        <div className="signature-grid">
+          {signatureDishes.map((dish, index) => (
+            <div
               key={dish.id}
-              dish={dish}
-            />
+              className={`signature-card signature-card-${index + 1}`}
+            >
+              <FoodCard dish={dish} />
+            </div>
           ))}
+        </div>
+
+        <div className="signature-footer">
+          <Link
+            href="/menu"
+            className="signature-menu-link"
+          >
+            Explore full menu
+            <ArrowRight size={16} />
+          </Link>
         </div>
       </div>
     </section>

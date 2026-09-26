@@ -1,4 +1,6 @@
 import { ArrowUpRight } from "lucide-react";
+import { restaurant } from "@/config/restaurant";
+import { content } from "@/data/content";
 
 export default function ReservationCTA() {
   return (
@@ -13,26 +15,25 @@ export default function ReservationCTA() {
       <div className="reservation-cta-overlay" />
 
       <div className="reservation-cta-content container">
-        <p className="subtitle">Reservations</p>
+        <p className="subtitle">{content.reservation.eyebrow}</p>
 
-        <h2>
-          Your table
-          <br />
-          <span>awaits.</span>
-        </h2>
+<h2>
+  {content.reservation.title}
+  <br />
+  <span>{content.reservation.highlightedTitle}</span>
+</h2>
 
-        <p className="reservation-cta-description">
-          Make your next evening memorable. Reserve your table
-          and experience LAVÉRA for yourself.
-        </p>
+<p className="reservation-cta-description">
+  {content.reservation.description}
+</p>
 
         <a
-          href="#contact"
-          className="reservation-button"
-        >
-          Reserve a Table
-          <ArrowUpRight size={18} />
-        </a>
+  href={`tel:${restaurant.reservation.phone}`}
+  className="reservation-button"
+>
+  Reserve a Table
+  <ArrowUpRight size={18} />
+</a>
       </div>
     </section>
   );

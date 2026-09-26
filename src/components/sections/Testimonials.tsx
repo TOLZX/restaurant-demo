@@ -1,7 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import {
+  ArrowLeft,
+  ArrowRight,
+} from "lucide-react";
 
 import { testimonials } from "@/data/testimonials";
 
@@ -56,7 +59,10 @@ export default function Testimonials() {
                 </span>
               </div>
 
-              <div className="testimonial-rating">
+              <div
+                className="testimonial-rating"
+                aria-label={`${activeTestimonial.rating} out of 5 stars`}
+              >
                 {"★".repeat(activeTestimonial.rating)}
               </div>
             </div>
@@ -64,8 +70,7 @@ export default function Testimonials() {
             <div className="testimonial-controls">
               <span>
                 {String(activeIndex + 1).padStart(2, "0")}
-                {" "}
-                /{" "}
+                {" / "}
                 {String(testimonials.length).padStart(2, "0")}
               </span>
 

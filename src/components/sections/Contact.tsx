@@ -4,34 +4,22 @@ import {
   MapPin,
   Phone,
 } from "lucide-react";
-
-const openingHours = [
-  {
-    days: "Monday — Thursday",
-    hours: "12:00 — 22:00",
-  },
-  {
-    days: "Friday — Saturday",
-    hours: "12:00 — 23:30",
-  },
-  {
-    days: "Sunday",
-    hours: "13:00 — 21:00",
-  },
-];
+import { restaurant } from "@/config/restaurant";
+import { it } from "node:test";
+import { content } from "@/data/content";
 
 export default function Contact() {
   return (
     <section className="contact section" id="contact">
       <div className="container">
         <div className="contact-heading">
-          <p className="subtitle">Find Us</p>
+          <p className="subtitle">{content.contact.eyebrow}</p>
 
-          <h2 className="section-title">
-            Come as you are.
-            <br />
-            <span>Stay for the experience.</span>
-          </h2>
+<h2 className="section-title">
+  {content.contact.title}
+  <br />
+  <span>{content.contact.highlightedTitle}</span>
+</h2>
         </div>
 
         <div className="contact-grid">
@@ -47,12 +35,13 @@ export default function Contact() {
                 </span>
 
                 <p>
-                  14 Victoria Island
+                  {restaurant.location.address}
                   <br />
-                  Lagos, Nigeria
+                  {restaurant.location.city}
                 </p>
               </div>
             </div>
+              
 
             <div className="contact-block">
               <div className="contact-icon">
@@ -64,8 +53,8 @@ export default function Contact() {
                   Reservations
                 </span>
 
-                <a href="tel:+2348000000000">
-                  +234 800 000 0000
+                <a href={`tel:${restaurant.contact.phone}`}>
+                    {restaurant.contact.phone}
                 </a>
               </div>
             </div>
@@ -80,14 +69,12 @@ export default function Contact() {
                   Opening Hours
                 </span>
 
-                <div className="opening-hours">
-                  {openingHours.map((item) => (
-                    <div key={item.days}>
-                      <span>{item.days}</span>
-                      <strong>{item.hours}</strong>
-                    </div>
-                  ))}
-                </div>
+                {restaurant.hours.map((item) => (
+                  <div key={item.days}>
+                    <span>{item.days}</span>
+                    <strong>{item.hours}</strong>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
@@ -96,7 +83,7 @@ export default function Contact() {
             <div className="map-placeholder">
               <MapPin size={30} />
 
-              <span>LAGOS, NIGERIA</span>
+              <span>{restaurant.location.city.toUpperCase()}</span>
 
               <a
                 href="https://maps.google.com"

@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { restaurant } from "@/config/restaurant";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -24,20 +25,34 @@ export default function Navbar() {
   };
 
   return (
-    <header className={`navbar ${scrolled ? "navbar-scrolled" : ""}`}>
+    <header
+      className={`navbar ${
+        scrolled ? "navbar-scrolled" : ""
+      }`}
+    >
       <div className="navbar-inner">
         <Link href="/" className="navbar-logo">
-          LAVÉRA
+          {restaurant.name}
         </Link>
 
         <nav className="navbar-links">
-          <Link href="#full-menu">Menu</Link>
-          <Link href="#about">About</Link>
-          <Link href="#experience">Experience</Link>
-          <Link href="#reservation">Reservation</Link>
+          <Link href="/menu">Menu</Link>
+
+          <Link href="/#about">About</Link>
+
+          <Link href="/#experience">
+            Experience
+          </Link>
+
+          <Link href="/#reservation">
+            Reservation
+          </Link>
         </nav>
 
-        <Link href="#reservation" className="navbar-cta">
+        <Link
+          href="/#reservation"
+          className="navbar-cta"
+        >
           Reserve
         </Link>
 
@@ -52,20 +67,30 @@ export default function Navbar() {
         </button>
       </div>
 
-      <div className={`mobile-menu ${menuOpen ? "mobile-menu-open" : ""}`}>
-        <Link href="#full-menu" onClick={closeMenu}>
+      <div
+        className={`mobile-menu ${
+          menuOpen ? "mobile-menu-open" : ""
+        }`}
+      >
+        <Link href="/menu" onClick={closeMenu}>
           Menu
         </Link>
 
-        <Link href="#about" onClick={closeMenu}>
+        <Link href="/#about" onClick={closeMenu}>
           About
         </Link>
 
-        <Link href="#experience" onClick={closeMenu}>
+        <Link
+          href="/#experience"
+          onClick={closeMenu}
+        >
           Experience
         </Link>
 
-        <Link href="#reservation" onClick={closeMenu}>
+        <Link
+          href="/#reservation"
+          onClick={closeMenu}
+        >
           Reservation
         </Link>
       </div>
